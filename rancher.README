@@ -1,0 +1,26 @@
+##INSTALL RKE + Rancher UI with Kubernetes
+
+- prepare infrastucure vm
+1. nginx-proxy
+2. rke master
+3. rke nodes (recomendation 3 nodes)
+
+- makesure ssh connetion already authentication from rke master to all nodes vm
+
+- install docker, rke, kubectl, helm to all infrastructure vm
+~$ ./install-rke.sh
+
+- create cluster.yml file on rke master
+~$ rke config --name cluster.yml
+#setup as requirement minimal 1 node
+
+- running rke script
+~$ rke up
+
+- export configuration rke config, 
+~$ export KUBECONFIG=kube_config_cluster.yml
+
+
+
+
+
