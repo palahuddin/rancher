@@ -12,6 +12,16 @@
 - ssh to nginx-proxy server
 apt install nginx -y
 
+- install snap & certbot
+apt install snap -y
+snap install core; sudo snap refresh core
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+
+- generate free ssl certificate
+certbot --nginx -d rke.example.com -d rke.example.com
+
+
 - add config nginx stream and proxy pass to conf.d
 cat lb-rancher.conf > /etc/nginx/conf.d/lb-rancher.conf
 cat rke.example.com.conf > /etc/nginx/conf.d/rke.example.com.conf
